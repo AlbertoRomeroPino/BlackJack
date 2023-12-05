@@ -1,30 +1,53 @@
 package Model;
-// shuflle = Baraja = todas las cartas con sus respectivos palos
+// shuflle = Barajar = mover las cartas
+// 2 arrays una por palo y otro por numero carta
+
 import java.util.Arrays;
+import java.util.Random;
 
 public class Deck {
-    private int[] shuflle = new int[4];
 
-    public int[] getShuflle() {
-        return shuflle;
+    private Card[] deckOfCards = new Card[52];
+
+    public Card[] getDeckOfCards() {
+        return deckOfCards;
     }
 
-    public void setShuflle(int[] shuflle) {
-        this.shuflle = shuflle;
+    public void setDeckOfCards(Card[] deckOfCards) {
+        this.deckOfCards = deckOfCards;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Deck deck = (Deck) o;
-        return Arrays.equals(shuflle, deck.shuflle);
+    public void assingCard() {
+        for (int i = 0; i < deckOfCards.length; i++) {
+            String[] palos = {"♥", "♠", "♦", "♣"};
+            int contador = 0;
+
+            for (String palo : palos) {
+                for (int j = 1; j <= 13; j++) {
+                    Card joker = new Card(j, palo);
+                    deckOfCards[contador] = joker;
+                    contador++;
+                }
+            }
+        }
     }
 
-    @Override
-    public String toString() {
-        return "Deck{" +
-                "shuflle=" + Arrays.toString(shuflle) +
-                '}';
+    /**
+     * Reparte una carta aleatoriamente
+     * @return devuelve la carta aleatoria
+     */
+    public Card getRamdomCard() {
+        Random randon = new Random();
+        int randomCard;
+        Card joker = new Card();
+        do {
+            randomCard = randon.nextInt(deckOfCards.length);
+
+        }while (deckOfCards[randomCard] == null);
+
+        joker = deckOfCards[randomCard];
+        deckOfCards[randomCard] = null;
+        return joker;
     }
+
 }
