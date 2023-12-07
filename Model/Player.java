@@ -13,5 +13,11 @@ public class Player {
     public static void mano (){
     }
 
+    public String getNombre() {
+        return nombre;
+    }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 }

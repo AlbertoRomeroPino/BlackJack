@@ -1,14 +1,25 @@
 package Model;
 
-public class Game {
-    public static void name(int nPlayer) {
-        // Asignar nombre a los jugadores y que no puedan ser iguales
-        Player jugador = new Player();
+import View.IO;
 
+public class Game {
+    public static void partida(int n) {
+        if (n == 1) {
+            gameSolitario();
+        } else {
+            gameCompetitivo();
+        }
 
     }
-        //Coger una carta al azar y darsela al jugador
 
+    public static int gameSolitario() {
+        int n = 0;
+        return n;
+    }
 
-
+    public static int gameCompetitivo() {
+        int n = 0;
+        return n;
+    }
 }
+

@@ -1,8 +1,5 @@
 package Model;
-// shuflle = Barajar = mover las cartas
-// 2 arrays una por palo y otro por numero carta
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class Deck {
@@ -17,6 +14,9 @@ public class Deck {
         this.deckOfCards = deckOfCards;
     }
 
+    /**
+     * Pone el valor de toda la baraja de cartas
+     */
     public void assingCard() {
         for (int i = 0; i < deckOfCards.length; i++) {
             String[] palos = {"♥", "♠", "♦", "♣"};
@@ -34,6 +34,7 @@ public class Deck {
 
     /**
      * Reparte una carta aleatoriamente
+     *
      * @return devuelve la carta aleatoria
      */
     public Card getRamdomCard() {
@@ -43,7 +44,7 @@ public class Deck {
         do {
             randomCard = randon.nextInt(deckOfCards.length);
 
-        }while (deckOfCards[randomCard] == null);
+        } while (deckOfCards[randomCard] == null);
 
         joker = deckOfCards[randomCard];
         deckOfCards[randomCard] = null;

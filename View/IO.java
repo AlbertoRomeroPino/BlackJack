@@ -1,5 +1,7 @@
 package View;
 
+import Model.Player;
+
 import java.util.Scanner;
 
 public class IO {
@@ -22,12 +24,11 @@ public class IO {
         boolean x;
         Scanner teclado = new Scanner(System.in);
         n = teclado.nextInt();
-        if (n == 1){
+        if (n == 1) {
             x = true;
-        }else {
+        } else {
             x = false;
         }
         return x;
     }
-
 }

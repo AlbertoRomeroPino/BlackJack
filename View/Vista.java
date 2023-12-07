@@ -1,6 +1,6 @@
 package View;
 
-public class View {
+public class Vista {
     public static void saludo() {
         System.out.println("Bienvenido al casino.");
         System.out.println();
@@ -28,6 +28,10 @@ public class View {
         return n;
     }
 
+    public static void insertName(int nPlayer){
+
+        System.out.println("Introduzca el nombre del jugador " + (nPlayer));
+    }
     public static void Rules() {
         System.out.println("Cada palo va desde el as hasta el 10 y el J, Q y K");
         System.out.println();
