@@ -3,7 +3,8 @@ import Model.Player;
 
 public class Main {
     public static void main(String[] args) {
-        MainController.main () ;
+        MainController c = new MainController() ;
+        c.Start();
 
         System.out.println("");
         System.out.println("Comprobación de llegar al final");

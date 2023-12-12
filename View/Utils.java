@@ -1,10 +1,8 @@
 package View;
 
-import Model.Player;
-
 import java.util.Scanner;
 
-public class IO {
+public class Utils {
 
     public static int readInt() {
         int n;
@@ -19,16 +17,4 @@ public class IO {
         return n;
     }
 
-    public static boolean readBoolean(String arg) {
-        int n;
-        boolean x;
-        Scanner teclado = new Scanner(System.in);
-        n = teclado.nextInt();
-        if (n == 1) {
-            x = true;
-        } else {
-            x = false;
-        }
-        return x;
-    }
 }

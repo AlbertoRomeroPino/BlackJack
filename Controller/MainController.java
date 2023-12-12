@@ -1,59 +1,73 @@
 package Controller;
 
-
-import Model.Game;
+import Model.Card;
+import Model.Deck;
 import Model.Player;
-import View.IO;
+import View.Utils;
 import View.Vista;
 
 public class MainController {
-    public static void main() {
+    private Deck deck;
+    private Player[] jugador;
 
-        //reglas del jogo
+    public MainController(){
+        this.deck = new Deck();
+    }
+
+    public void Start() {
+
 
         //Empezar == Numero de jugadores
         Vista.saludo();
         int nPlayer = Vista.readHome();
 
-
+        //reglas del jogo
+        Vista.Rules();
 
 
         if (nPlayer == 1) {
             Vista.insertName(1);
-            Player jugador = onePlayer();
-            Game.gameCompetitivo();
-        } else {
-            Player[] jugadores = new Player[nPlayer];
-            for (int i = 1; i <= nPlayer; i++) {
-                Vista.insertName(i);
-                jugadores = morePlayer(nPlayer, i);
+            jugador = new Player[nPlayer+1];
+            onePlayer(jugador);
+
+
+            //juego
+
+            for (int i = 0; i<2; i++) {
+                Vista.inprimirNombre(jugador[i]);        //sout("Aquí puedes ver su mano")
+                dealInitialHands();;
+
             }
-            Game.gameCompetitivo(jugadores, nPlayer);
+            for (Player player : jugador) {
+                Vista.inprimirNombre(player);
+                System.out.println(player.mostrarMano());
+            }
+
         }
 
-        //Jugar == pide al jugador que quiere hacer (1 coger carta, 2 terminar ronda)
-        //Finalizar juego == Decir quien a ganado o si an empatado dependiendo cuantos ganen
     }
 
     /**
      * Insertar un usuario porque es el jugador solitario
      */
-    public static Player onePlayer() {
-        Player player = new Player(IO.readString());
-        return player;
+    public  void onePlayer(Player[] jugador) {
+        jugador[0] = new Player();
+        jugador[0].setNombre(Utils.readString());
+
+        //crear IA
+        jugador[1] = new Player();
+        jugador[1].setNombre("IA");
+
     }
 
-    /**
-     * Inserta los nombres de los jugadores en la clase players
-     * @param nPlayer El numero de jugadores que van a ponerse nombres
-     * @param i Contador que viene para poder almacenar todos los jugadores
-     */
-    public static Player[] morePlayer(int nPlayer, int i) {
-        Player[] players = new Player[nPlayer];
-
-        players[i - 1] = new Player();
-        players[i - 1].setNombre(IO.readString());
-        return players;
+    private void dealInitialHands() {
+        for (Player player : jugador) {
+            Vista.inprimirNombre(player);
+            for (int i = 0; i < 2; i++) {
+                Card newCard = deck.getRamdomCard();
+                player.addCard(newCard);
+            }
+        }
     }
 
 }
