@@ -32,10 +32,10 @@ public class MainController {
 
 
             //juego
+            Vista.inprimirNombre(jugador[0]);        //sout("Aquí puedes ver su mano")
 
             for (int i = 0; i<2; i++) {
-                Vista.inprimirNombre(jugador[i]);        //sout("Aquí puedes ver su mano")
-                dealInitialHands();;
+                dealInitialHands();
 
             }
             for (Player player : jugador) {

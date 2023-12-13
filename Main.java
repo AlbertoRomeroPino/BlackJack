@@ -6,11 +6,9 @@ public class Main {
         MainController c = new MainController() ;
         c.Start();
 
-        System.out.println("");
-        System.out.println("Comprobación de llegar al final");
-        System.out.println("----------------------");
-        Player i = new Player();
-        System.out.println(i.getNombre());
+
+        System.out.println("Adios");
+
     }
 }
 // En View en el catch no se si me falta algo o si eso compruebalo en clase

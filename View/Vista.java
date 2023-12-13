@@ -41,7 +41,7 @@ public class Vista {
     public static void Rules() {
         System.out.println("Deseas refrescar las reglas [S si, cualquier otro no]");
         String R = Utils.readString();
-        if (R == "S" || R == "s") {
+        if (R.equalsIgnoreCase("s")) {
             System.out.println("Cada palo va desde el as(1) hasta el 10 y el J, Q y K");
             System.out.println("El As se mostrara como 1 y su valor es tanto 1 como 11. Esto dependera si su valor se pasa de 21");
             System.out.println("J, Q y K que son los numeros 11, 12 y 13 tendran un valor de 10");
